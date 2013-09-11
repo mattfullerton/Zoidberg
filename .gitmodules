@@ -1,0 +1,3 @@
+[submodule "PyABike"]
+	path = PyABike
+	url = git@github.com:Ik4ru5/PyABike.git
