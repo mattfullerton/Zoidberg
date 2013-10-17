@@ -13,10 +13,12 @@ class pushThread(threading.Thread):
 	def run(self):
 		while 1:
 			station = self.workerQueue.get()
-			
+
 			for clientNumber in self.server.server.clients:
-				client = self.server.server.connections[clientNumber]		
+				client = self.server.server.connections[clientNumber]
 				if client.handshaked == True:
 					if self.prevStation != station.out():
 						client.sendMessage(str(station.out()))
 						self.prevStation = station.out()
+						
+						self.workerQueue.task_done()

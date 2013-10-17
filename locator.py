@@ -10,7 +10,6 @@ from CallABikeStation import *
 from socketServer import *
 from pushThread import *
 
-
 THREADS = 8
 
 workerQueue = Queue.Queue(0)
@@ -21,8 +20,9 @@ worker = []
 
 startStation = CallABikeStation(8.403638, 49.006883, 0)
 workerQueue.put(startStation)
-server = socketServerThread("localhost", 31337)
+server = socketServerThread("localhost", 31337, socketQueue)
 push = pushThread(socketQueue, server)
+
 
 # thread for sending data!
 
@@ -38,6 +38,3 @@ worker.append(server)
 for i in worker:
 	i.start();
 
-
-#for i in range(THREADS):
-#    queue.put(None)

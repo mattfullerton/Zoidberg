@@ -3,7 +3,7 @@
 *.Trash
 ### Python ###
 *.py[cod]
-
+*.db
 # C extensions
 *.so
 

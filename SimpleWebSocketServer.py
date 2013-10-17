@@ -487,8 +487,9 @@ class WebSocket(object):
 
 
 class SimpleWebSocketServer(object):
-	def __init__(self, host, port, websocketclass = ''):
+	def __init__(self, host, port, socketQueue, websocketclass = ''):
 		self.websocketclass = websocketclass
+		self.websocketclass.socketQueue = socketQueue
 		self.serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		self.serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 		self.serversocket.bind((host, port))

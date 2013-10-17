@@ -7,7 +7,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUyCFTizHVqjPSw3yFeTdEHxIDKiME890&v=3.exp&sensor=false"></script>
     <script>
 		var kalrsuhe = new google.maps.LatLng(49.01383,8.40444);
-		var kalrsuhe2 = new google.maps.LatLng(49.00688,8.40363);
 		var marker;
 		var map;
 		
@@ -17,13 +16,6 @@
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
 				center: kalrsuhe
 			};
-			
-			marker = new google.maps.Marker({
-				map: map,
-				draggable: false,
-				animation: google.maps.Animation.DROP,
-				position: kalrsuhe2
-			});
 		
 			map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 			
@@ -43,10 +35,8 @@
 		}
 	
 		function onMessage(evt) {
-			//console.log(evt)
-			//console.log(evt.data)
 			position = evt.data.split(",")
-			console.log(position[0], position[1], position[2])
+			//console.log(position[0], position[1], position[2])
 			newMarker(position[0], position[1], position[2])
 		}
 		
