@@ -16,7 +16,7 @@ class socketServer(WebSocket):
 			sqliteCursor.execute("SELECT * FROM stations")
 			result = sqliteCursor.fetchall()
 			for station in result:
-				cabStation = CallABikeStation(station[3], station[4], station[5])
+				cabStation = CallABikeStation(station[2], station[3], station[4])
 				self.socketQueue.put(cabStation)
 				sleep(0.025)
 			sqliteConn.close()
